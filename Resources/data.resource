@@ -18,3 +18,12 @@ ${invalid_username6}    invalid_user6
 # Passwords
 ${valid_password}    secret_sauce
 ${invalid_password}    justinvalid
+
+# Image Sources
+${dogPicture}    https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg
+${backpackPicture}    https://www.saucedemo.com/static/media/sauce-backpack-1200x1500.0a0b85a3.jpg
+${bikeLightPicture}    https://www.saucedemo.com/static/media/bike-light-1200x1500.37c843b0.jpg
+${boltTshirtPicture}    https://www.saucedemo.com/static/media/bolt-shirt-1200x1500.c2599ac5.jpg
+${fleeceJacketPicture}    https://www.saucedemo.com/static/media/sauce-pullover-1200x1500.51d7ffaf.jpg
+${onesiePicture}    https://www.saucedemo.com/static/media/red-onesie-1200x1500.2ec615b2.jpg
+${redTshirtPicture}    https://www.saucedemo.com/static/media/red-tatt-1200x1500.30dadef4.jpg
