@@ -1,3 +1,4 @@
+# ====================================================================================================
 *** Settings ***
 Documentation    Resources management for *CHECKOUT* test suite.
 ...
@@ -13,9 +14,11 @@ Documentation    Resources management for *CHECKOUT* test suite.
 ...    opt = Element that represent an option from dropdown, radio button or something similiar.
 ...    box = Elemeent that represent checkbox or multiple selection.
 Resource    imports.resource
+# ====================================================================================================
 
 
 
+# ====================================================================================================
 *** Variables ***
 ${unq_loginPage}    //div[@class='login_logo']
 ${inp_username}    //input[@id='user-name']
@@ -25,8 +28,11 @@ ${err_emptyUsername}    //h3[contains(.,'Username is required')]
 ${err_emptyPassword}    //h3[contains(.,'Password is required')]
 ${err_invalidCredentials}    //h3[contains(.,'Username and password do not match any user in this service')]
 ${btn_closeErrMessage}    //button[@class='error-button']
+# ====================================================================================================
 
 
+
+# ====================================================================================================
 *** Keywords ***
 Login Setup
     ${login_page}    Run Keyword And Return Status    Element Should Be Visible    ${unq_loginPage}
@@ -74,4 +80,4 @@ Clear ${field} Field
     ELSE IF    $converted == "password"
         Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_password}    ${EMPTY}
     END
-
+# ====================================================================================================
