@@ -62,10 +62,21 @@ TC-01-007 Locked Out User
     [Documentation]     *Scenario:* Login using locked out user account.\n\n
     ...                 *Expected:* Show error message that indicates user is locked out.
     Input Locked Out Username
-    Input Invalid Password
+    Input Valid Password
     Submit Login
     Verify Error: Locked Out Account
     Close Error Message in Login Page
+
+TC-01-008 Problem User
+    [Tags]    Negative
+    [Documentation]     *Scenario:* Login using problem user account.\n\n
+    ...                 *Expected:* After redirected to item list, all image is showing dog picture instead of
+    ...                             relevant images.
+    Input Problem User Username
+    Input Valid Password
+    Submit Login
+    Verify Success: Logged In
+    Verify Error: All Images are Dog Picture
 
 TC-01-006 Login Successfully
     [Tags]    Positive
@@ -74,7 +85,8 @@ TC-01-006 Login Successfully
     Input Standard Username
     Input Valid Password
     Submit Login
-    Verify Logged In Successfully
+    Verify Success: Logged In
+    Verify Success: All Images are Relevant
 # ====================================================================================================
 
 
