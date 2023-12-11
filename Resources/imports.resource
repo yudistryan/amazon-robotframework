@@ -10,3 +10,4 @@ Library    String
 Resource    data.resource
 Resource    general.resource
 Resource    login.resource
+Resource    appPage.resource

@@ -27,6 +27,7 @@ ${btn_submitLogin}    //input[@id='login-button']
 ${err_emptyUsername}    //h3[contains(.,'Username is required')]
 ${err_emptyPassword}    //h3[contains(.,'Password is required')]
 ${err_invalidCredentials}    //h3[contains(.,'Username and password do not match any user in this service')]
+${err_lockedCredential}    //h3[contains(.,'Sorry, this user has been locked out')]
 ${btn_closeErrMessage}    //button[@class='error-button']
 # ====================================================================================================
 
@@ -42,24 +43,54 @@ Login Setup
         Reload Page
     END
 
-Input Valid Username
-    [Arguments]    ${username}=${valid_username1}
-    Input Text    ${inp_username}    ${username}
+Input ${user_type} Username
+    [Arguments]    ${username}=${EMPTY}
+    ${converted}    Convert To Lower Case    ${user_type}
+    IF    "standard" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_username}    ${standard_user}
+    ELSE IF    "locked" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_username}    ${locked_out_user}
+    ELSE IF    "problem" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_username}    ${problem_user}
+    ELSE IF    "performance" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_username}    ${performance_glitch_user}
+    ELSE IF    "error" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_username}    ${error_user}
+    ELSE IF    "visual" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_username}    ${visual_user}
+    ELSE IF    "valid" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_username}    ${standard_user}
+    ELSE IF    "invalid" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_username}    ${invalid_username1}
+    ELSE IF    "empty" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_username}    ${EMPTY}
+    ELSE IF    "other" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_username}    ${username}
+    END
 
-Input Invalid Username
-    [Arguments]    ${username}=${invalid_username1}
-    Input Text    ${inp_username}    ${username}
+Input ${password_type} Password
+    [Arguments]    ${password}=${EMPTY}
+    ${converted}    Convert To Lower Case    ${password_type}
+    IF    "valid" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_password}    ${valid_password}
+    ELSE IF    "invalid" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_password}    ${invalid_password}
+    ELSE IF    "empty" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_password}    ${EMPTY}
+    ELSE IF    "other" in $converted
+        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_password}    ${password}
+    END
 
-Input Valid Password
-    [Arguments]    ${password}=${valid_password}
-    Input Text    ${inp_password}    ${password}
-
-Input Invalid Password
-    [Arguments]    ${password}=${invalid_password}
-    Input Text    ${inp_password}    ${password}
-
+Clear ${field} Field
+    ${converted}    Convert To Lower Case    ${field}
+    IF    $converted == "username"
+        Input Empty Username
+    ELSE IF    $converted == "password"
+        Input Empty Password
+    END
+    
 Submit Login
-    Click Element    ${btn_submitLogin}
+    Wait Until Keyword Succeeds    10s    1s    Click Element    ${btn_submitLogin}
     
 Verify Error: Empty Username Field
     Wait Until Element Is Visible    ${err_emptyUsername}    5s
@@ -69,15 +100,13 @@ Verify Error: Empty Password Field
 
 Verify Error: Invalid Credentials
     Wait Until Element Is Visible    ${err_invalidCredentials}    5s
+
+Verify Error: Locked Out Account
+    Wait Until Element Is Visible    ${err_lockedCredential}    5s
     
 Close Error Message in Login Page
-    Click Element    ${btn_closeErrMessage}
+    Wait Until Keyword Succeeds    10s    1s    Click Element    ${btn_closeErrMessage}
 
-Clear ${field} Field
-    ${converted}    Convert To Lower Case    ${field}
-    IF    $converted == "username"
-        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_username}    ${EMPTY}
-    ELSE IF    $converted == "password"
-        Wait Until Keyword Succeeds    10s    1s    Input Text    ${inp_password}    ${EMPTY}
-    END
+Verify Logged In Successfully
+    Wait Until Element Is Visible    ${unq_appPage}    5s
 # ====================================================================================================
