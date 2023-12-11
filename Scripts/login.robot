@@ -38,7 +38,7 @@ TC-01-003 Empty Email Fields
     [Tags]    Negative
     [Documentation]     *Scenario:* Empty password field in login page and submit.\n\n
     ...                 *Expected:* Show error message that indicates password field cannot be empty.
-    Input Valid Username
+    Input Standard Username
     Clear Password Field
     Submit Login
     Verify Error: Empty Password Field
@@ -50,12 +50,31 @@ TC-01-004 Invalid Credentials
     ...                 *Expected:* Show error message that indicates username and password is not matched.
     @{invalid_usernames}    Create Invalid Usernames
     FOR    ${username}    IN    @{invalid_usernames}
-        Input Invalid Username    ${username}
+        Input Other Username    ${username}
         Input Invalid Password
         Submit Login
         Verify Error: Invalid Credentials
         Close Error Message in Login Page
     END
+
+TC-01-007 Locked Out User
+    [Tags]    Negative
+    [Documentation]     *Scenario:* Login using locked out user account.\n\n
+    ...                 *Expected:* Show error message that indicates user is locked out.
+    Input Locked Out Username
+    Input Invalid Password
+    Submit Login
+    Verify Error: Locked Out Account
+    Close Error Message in Login Page
+
+TC-01-006 Login Successfully
+    [Tags]    Positive
+    [Documentation]     *Scenario:* Login using valid usernames and password.\n\n
+    ...                 *Expected:* User is redirected to Item List page (App Page).
+    Input Standard Username
+    Input Valid Password
+    Submit Login
+    Verify Logged In Successfully
 # ====================================================================================================
 
 
