@@ -107,6 +107,26 @@ Verify Error: Locked Out Account
 Close Error Message in Login Page
     Wait Until Keyword Succeeds    10s    1s    Click Element    ${btn_closeErrMessage}
 
-Verify Logged In Successfully
+Verify Success: Logged In
     Wait Until Element Is Visible    ${unq_appPage}    5s
+
+Verify Error: All Images are Dog Picture
+    @{image_sources}    Create List    ${img_sauceLabsBackpack}    ${img_sauceLabsBike}    ${img_sauceLabsBoltTshirt}
+    ...    ${img_sauceLabsFleeceJacket}    ${img_sauceLabsOnesie}    ${img_sauceLabsRedTshirt}
+    FOR    ${image}    IN    @{image_sources}
+        ${image_source}    seleniumLibrary.Get Element Attribute    ${image}    src
+        Run Keyword And Continue On Failure    Should Be Equal    ${image_source}    ${dogPicture}
+    END
+
+Verify Success: All Images are Relevant
+    @{image_locators}    Create List    ${img_sauceLabsBackpack}    ${img_sauceLabsBike}    ${img_sauceLabsBoltTshirt}
+    ...    ${img_sauceLabsFleeceJacket}    ${img_sauceLabsOnesie}    ${img_sauceLabsRedTshirt}
+    @{image_sources}    Create List    ${backpackPicture}    ${bikeLightPicture}    ${boltTshirtPicture}
+    ...    ${fleeceJacketPicture}    ${onesiePicture}    ${redTshirtPicture}
+    FOR    ${index}    IN RANGE    6
+        ${locator}    Get From List    ${image_locators}    ${index}
+        ${source}    Get From List    ${image_sources}    ${index}
+        ${image_source}    seleniumLibrary.Get Element Attribute    ${locator}    src
+        Run Keyword And Continue On Failure    Should Be Equal    ${source}    ${image_source}
+    END
 # ====================================================================================================
