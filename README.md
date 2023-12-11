@@ -1,2 +1,2 @@
-# Sauce Labs Automation System Test
-System testing on https://www.saucedemo.com/ using Robot Framework.
+# Sauce Labs Automation Testing
+System testing on Sauce Labs demo website https://www.saucedemo.com/ using Robot Framework.
