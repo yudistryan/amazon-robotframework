@@ -1,2 +1,2 @@
-# amazon-robotframework
-System testing on amazon.com using Robot Framework
+# Saucedemo Automation System Test
+System testing on saucedemo.com using Robot Framework
