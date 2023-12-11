@@ -5,12 +5,12 @@
  -r trial-report.html
  -o trial-output.xml
  #--loglevel TRACE
- #--test C10734*
+ #--test TC-01-004*
  #-i Retest
  #-i Exclude
  -e Exclude
- -d .\Test Results
+ -d .\Test Results\Trial
  #--listener RetryFailed:3
  #--timestampoutputs
  #--variable global_env:Staging TW
- .\Scripts
+ .\Scripts\*data*

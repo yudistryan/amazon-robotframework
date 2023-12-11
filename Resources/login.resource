@@ -45,10 +45,12 @@ Input Invalid Username
     Input Text    ${inp_username}    ${username}
 
 Input Valid Password
-    Input Text    ${inp_password}    ${valid_password}
+    [Arguments]    ${password}=${valid_password}
+    Input Text    ${inp_password}    ${password}
 
 Input Invalid Password
-    Input Text    ${inp_password}    ${invalid_password}
+    [Arguments]    ${password}=${invalid_password}
+    Input Text    ${inp_password}    ${password}
 
 Submit Login
     Click Element    ${btn_submitLogin}
