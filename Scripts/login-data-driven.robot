@@ -1,6 +1,6 @@
 # ====================================================================================================
 *** Settings ***
-Documentation    Contains test scenarios for login page.
+Documentation    Contains test scenarios for login page using Test Data-Driven.
 Resource    ../Resources/imports.resource
 Suite Setup    General Suite Setup
 Test Setup    Login Setup
