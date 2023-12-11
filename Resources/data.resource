@@ -2,12 +2,12 @@
 ${base_url}    https://www.saucedemo.com/
 
 # Usernames
-${valid_username1}    standard_user
-${valid_username2}    locked_out_user
-${valid_username3}    problem_user
-${valid_username4}    performance_glitch_user
-${valid_username5}    error_user
-${valid_username6}    visual_user
+${standard_user}    standard_user
+${locked_out_user}    locked_out_user
+${problem_user}    problem_user
+${performance_glitch_user}    performance_glitch_user
+${error_user}    error_user
+${visual_user}    visual_user
 ${invalid_username1}    invalid_user1
 ${invalid_username2}    invalid_user2
 ${invalid_username3}    invalid_user3
