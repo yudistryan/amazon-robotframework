@@ -1,0 +1,16 @@
+ --logtitle Trial Test Log
+ --reporttitle Trial Test Report
+ -l trial-log.html
+ -x trial-junit-report.xml
+ -r trial-report.html
+ -o trial-output.xml
+ #--loglevel TRACE
+ #--test C10734*
+ #-i Retest
+ #-i Exclude
+ -e Exclude
+ -d .\Test Results
+ #--listener RetryFailed:3
+ #--timestampoutputs
+ #--variable global_env:Staging TW
+ .\Scripts
