@@ -57,7 +57,7 @@ TC-01-004 Invalid Credentials
         Close Error Message in Login Page
     END
 
-TC-01-007 Locked Out User
+TC-01-007 Login as Locked Out User
     [Tags]    Negative
     [Documentation]     *Scenario:* Login using locked out user account.\n\n
     ...                 *Expected:* Show error message that indicates user is locked out.
@@ -67,7 +67,7 @@ TC-01-007 Locked Out User
     Verify Error: Locked Out Account
     Close Error Message in Login Page
 
-TC-01-008 Problem User
+TC-01-008 Login as Problem User
     [Tags]    Negative
     [Documentation]     *Scenario:* Login using problem user account.\n\n
     ...                 *Expected:* After redirected to item list, all image is showing dog picture instead of
@@ -77,6 +77,16 @@ TC-01-008 Problem User
     Submit Login
     Verify Success: Logged In
     Verify Error: All Images are Dog Picture
+
+TC-01-009 Login as Error User
+    [Tags]    Negative
+    [Documentation]     *Scenario:* Login using valid usernames and password.\n\n
+    ...                 *Expected:* User is redirected to Item List page (App Page).
+    Input Error Username
+    Input Valid Password
+    Submit Login
+    Verify Success: Logged In
+    Verify Success: All Images are Relevant
 
 TC-01-006 Login Successfully
     [Tags]    Positive
