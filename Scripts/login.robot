@@ -80,13 +80,27 @@ TC-01-008 Login as Problem User
 
 TC-01-009 Login as Error User
     [Tags]    Negative
-    [Documentation]     *Scenario:* Login using valid usernames and password.\n\n
-    ...                 *Expected:* User is redirected to Item List page (App Page).
+    [Documentation]     *Scenario:* Login using error user's username and password.\n\n
+    ...                 *Expected:* User is redirected to Item List page (App Page) and all images shown are
+    ...                             relevant with its product name.
     Input Error Username
     Input Valid Password
     Submit Login
     Verify Success: Logged In
     Verify Success: All Images are Relevant
+
+TC-01-010 Login as Visual User
+    [Tags]    Positive
+    [Documentation]     *Scenario:* Login using visual user's usernames and password.\n\n
+    ...                 *Expected:* User is redirected to Item List page (App Page) and some element's position
+    ...                             are off.
+    Input Visual User Username
+    Input Valid Password
+    Submit Login
+    Verify Success: Logged In
+    Verify Error: Backpack Image is Dog Image Instead
+    Verify Error: Shopping Cart is Misplaced
+    Verify Error: Burger Menu is Rotating
 
 TC-01-006 Login Successfully
     [Tags]    Positive
