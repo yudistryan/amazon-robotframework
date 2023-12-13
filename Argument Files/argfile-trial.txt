@@ -5,7 +5,7 @@
  -r trial-report.html
  -o trial-output.xml
  #--loglevel TRACE
- --test TC-01-006*
+ #--test *010*
  #-i Retest
  #-i Exclude
  -e Exclude
