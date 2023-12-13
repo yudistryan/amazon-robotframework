@@ -129,4 +129,44 @@ Verify Success: All Images are Relevant
         ${image_source}    seleniumLibrary.Get Element Attribute    ${locator}    src
         Run Keyword And Continue On Failure    Should Be Equal    ${source}    ${image_source}
     END
+
+Verify Error: Backpack Image is Dog Image Instead
+    ${image_source}    seleniumLibrary.Get Element Attribute    ${img_sauceLabsBackpack}    src
+    Run Keyword And Continue On Failure    Should Be Equal    ${dogPicture}    ${image_source}
+
+Get Element X,Y Position
+    [Arguments]    ${element}
+    &{positions}    Execute Javascript    
+    ...    var elem = window.document.evaluate("${element}", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    ...    return elem.getBoundingClientRect();
+    ${x}    Convert To String    ${positions}[x]
+    ${y}    Convert To String    ${positions}[y]
+    @{xy}    Create List    ${x}    ${y}
+    RETURN   @{xy}
+
+Verify Error: Shopping Cart is Misplaced
+    @{position}    Get Element X,Y Position    ${btn_cartTop}
+    Run Keyword And Continue On Failure    Should Not Be Equal    ${cart_x}    ${position}[0]
+    Run Keyword And Continue On Failure    Should Not Be Equal    ${cart_y}    ${position}[1]
+
+Verify Error: Red Tshirt's Add to Cart Button is Misplaced
+    @{position}    Get Element X,Y Position    ${btn_addToCartRedTshirt}
+    Run Keyword And Continue On Failure    Should Not Be Equal    ${addToCartRedT_x}    ${position}[0]
+    Run Keyword And Continue On Failure    Should Not Be Equal    ${addToCartRedT_y}    ${position}[1]
+
+Check If Element is Rotating
+    [Arguments]    ${element}
+    ${transform}    Execute Javascript    var elem = window.document.evaluate("${element}", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    ...                                   return window.getComputedStyle(elem).transform;
+    IF    $transform != 'none'
+        RETURN    ${True}
+    ELSE
+        RETURN    ${False}
+    END
+
+Verify Error: Burger Menu is Rotating
+    ${rotating}    Check If Element is Rotating    ${btn_bugerMenu}
+    IF    $rotating == $False
+        Fail    Burger Menu is not rotating.
+    END
 # ====================================================================================================
