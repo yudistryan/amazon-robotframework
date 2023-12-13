@@ -27,3 +27,9 @@ ${boltTshirtPicture}    https://www.saucedemo.com/static/media/bolt-shirt-1200x1
 ${fleeceJacketPicture}    https://www.saucedemo.com/static/media/sauce-pullover-1200x1500.51d7ffaf.jpg
 ${onesiePicture}    https://www.saucedemo.com/static/media/red-onesie-1200x1500.2ec615b2.jpg
 ${redTshirtPicture}    https://www.saucedemo.com/static/media/red-tatt-1200x1500.30dadef4.jpg
+
+# Element Position
+${cart_x}    1289
+${cart_y}    10
+${addToCartRedT_x}    1063.5
+${addToCartRedT_y}    176
