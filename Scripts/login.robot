@@ -68,7 +68,7 @@ TC-01-007 Login as Locked Out User
     Close Error Message in Login Page
 
 TC-01-008 Login as Problem User
-    [Tags]    Negative
+    [Tags]    Positive
     [Documentation]     *Scenario:* Login using problem user account.\n\n
     ...                 *Expected:* After redirected to item list, all image is showing dog picture instead of
     ...                             relevant images.
@@ -79,7 +79,7 @@ TC-01-008 Login as Problem User
     Verify Error: All Images are Dog Picture
 
 TC-01-009 Login as Error User
-    [Tags]    Negative
+    [Tags]    Positive
     [Documentation]     *Scenario:* Login using error user's username and password.\n\n
     ...                 *Expected:* User is redirected to Item List page (App Page) and all images shown are
     ...                             relevant with its product name.
