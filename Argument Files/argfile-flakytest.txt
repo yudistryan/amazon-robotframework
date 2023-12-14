@@ -1,0 +1,18 @@
+ --name Flaky Test
+ --logtitle Flaky Test Log
+ --reporttitle Flaky Test Report
+ -l flaky-test-log.html
+ -x flaky-test-junit-report.xml
+ -r flaky-test-report.html
+ -o flaky-test-output.xml
+ #--test *-02-001*
+ #-i Trial
+ -e Exclude
+ -d .\Test Results\Flaky Test\
+ #--listener RetryFailed:1
+ #--timestampoutputs
+ #--variable global_env:Staging TW
+ .\Scripts
+ .\Scripts
+ .\Scripts
+ .\Scripts
