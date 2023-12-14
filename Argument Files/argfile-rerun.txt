@@ -8,7 +8,7 @@
  #--test *-02-014*
  #-i Sanity
  -e Exclude
- -d .\Trial Result
+ -d .\Test Results\Rerun
  --rerunfailed
  .\Test Results\Trial\trial-output.xml
  #--listener RetryFailed:3
