@@ -1,0 +1,8 @@
+ --merge
+ -l merged-log.html
+ -x merged-junit-report.xml
+ -o merged-output.xml
+ -r merged-report.html
+ -d .\Test Results\Merged
+ .\Test Results\output.xml
+ .\Test Results\rerun.xml
