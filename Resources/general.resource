@@ -19,4 +19,11 @@ Create Invalid Usernames
     @{invalid_usernames}    Create List    ${invalid_username1}    ${invalid_username2}    ${invalid_username3}
     ...    ${invalid_username4}    ${invalid_username5}    ${invalid_username6}
     RETURN    @{invalid_usernames}
+
+Login As Standard User
+    Input Standard Username
+    Input Valid Password
+    Submit Login
+    Verify Success: Logged In
+    Verify Success: All Images are Relevant
 # ====================================================================================================
