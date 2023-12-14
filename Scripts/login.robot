@@ -102,6 +102,15 @@ TC-01-010 Login as Visual User
     Verify Error: Shopping Cart is Misplaced
     Verify Error: Burger Menu is Rotating
 
+TC-01-011 Login as Performance Glitch User
+    [Tags]    Positive
+    [Documentation]     *Scenario:* Login using performance glitch user's usernames and password.\n\n
+    ...                 *Expected:* User is redirected to Item List page (App Page) longer than usual user.
+    Input Performance Glitch User Username
+    Input Valid Password
+    Submit Login
+    Verify Success: Logged In
+
 TC-01-006 Login Successfully
     [Tags]    Positive
     [Documentation]     *Scenario:* Login using valid usernames and password.\n\n
