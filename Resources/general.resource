@@ -26,4 +26,33 @@ Login As Standard User
     Submit Login
     Verify Success: Logged In
     Verify Success: All Images are Relevant
+
+Product Details List
+    ${products}    Create List    ${details_backpack}    ${details_bikeLight}    ${details_boltTshirt}
+    ...    ${details_fleeceJacket}    ${details_onesie}    ${details_redTshirt}
+    RETURN    @{products}
+
+Products Name List
+    ${products}    Product Details List
+    @{names}    Create List    ${EMPTY}
+    FOR    ${product}    IN    @{products}
+        IF    $products.index($product) == 0
+            Set List Value    ${names}    0    ${product}[name]
+        ELSE
+            Append To List    ${names}    ${product}[name]
+        END
+    END
+    RETURN    @{names}
+
+Products Price List
+    ${products}    Product Details List
+    @{prices}    Create List    ${EMPTY}
+    FOR    ${product}    IN    @{products}
+        IF    $products.index($product) == 0
+            Set List Value    ${prices}    0    ${product}[price]
+        ELSE
+            Append To List    ${prices}    ${product}[price]
+        END
+    END
+    RETURN    @{prices}
 # ====================================================================================================
