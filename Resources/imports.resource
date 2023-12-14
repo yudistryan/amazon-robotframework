@@ -12,3 +12,4 @@ Resource    data.resource
 Resource    general.resource
 Resource    login.resource
 Resource    productListPage.resource
+Resource    cart.resource
