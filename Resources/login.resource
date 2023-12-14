@@ -150,7 +150,7 @@ Verify Error: Shopping Cart is Misplaced
     Run Keyword And Continue On Failure    Should Not Be Equal    ${cart_y}    ${position}[1]
 
 Verify Error: Red Tshirt's Add to Cart Button is Misplaced
-    @{position}    Get Element X,Y Position    ${btn_addToCartRedTshirt}
+    @{position}    Get Element X,Y Position    ${btn_redTshirt_addToCart}
     Run Keyword And Continue On Failure    Should Not Be Equal    ${addToCartRedT_x}    ${position}[0]
     Run Keyword And Continue On Failure    Should Not Be Equal    ${addToCartRedT_y}    ${position}[1]
 
@@ -165,7 +165,7 @@ Check If Element is Rotating
     END
 
 Verify Error: Burger Menu is Rotating
-    ${rotating}    Check If Element is Rotating    ${btn_bugerMenu}
+    ${rotating}    Check If Element is Rotating    ${btn_burger_sidebar}
     IF    $rotating == $False
         Fail    Burger Menu is not rotating.
     END
