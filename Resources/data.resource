@@ -2,6 +2,10 @@
 # URLs
 ${base_url}    https://www.saucedemo.com/
 ${productList_sub_url}    /inventory.html
+${about_url}    https://saucelabs.com/
+${linkedin_url}    https://www.linkedin.com/company/sauce-labs/
+${twitter_url}    https://twitter.com/saucelabs
+${facebook_url}    https://www.facebook.com/saucelabs
 
 # Usernames
 ${standard_user}    standard_user
@@ -35,3 +39,11 @@ ${cart_x}    1289
 ${cart_y}    10
 ${addToCartRedT_x}    1063.5
 ${addToCartRedT_y}    176
+
+# Product Details
+&{details_backpack}    name=Sauce Labs Backpack    price=$29.99
+&{details_bikeLight}    name=Sauce Labs Bike Light    price=$9.99
+&{details_boltTshirt}    name=Sauce Labs Bolt T-Shirt    price=$15.99
+&{details_fleeceJacket}    name=Sauce Labs Fleece Jacket    price=$49.99
+&{details_onesie}    name=Sauce Labs Onesie    price=$7.99
+&{details_redTshirt}    name=Test.allTheThings() T-Shirt (Red)    price=$15.99
