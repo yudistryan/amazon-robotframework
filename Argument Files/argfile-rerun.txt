@@ -1,0 +1,17 @@
+ --logtitle Rerun Test Log
+ --reporttitle Rerun Test Report
+ -l rerun-log.html
+ -x rerun-junit-report.xml
+ -r rerun-report.html
+ -o rerun-output.xml
+ #--loglevel TRACE
+ #--test *-02-014*
+ #-i Sanity
+ -e Exclude
+ -d .\Trial Result
+ --rerunfailed
+ .\Test Results\Trial\trial-output.xml
+ #--listener RetryFailed:3
+ #--timestampoutputs
+ #--variable global_env:Staging TW
+ .\Scripts
