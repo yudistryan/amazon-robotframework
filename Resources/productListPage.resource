@@ -16,6 +16,7 @@ ${img_cartBadge}    //span[@class='shopping_cart_badge']
 
 # Sidebar Menu
 ${btn_burger_sidebar}    id:react-burger-menu-btn
+${img_burger_icon}    //img[@alt='Open Menu']
 ${btn_allItems_sidebar}    //a[@id='inventory_sidebar_link']
 ${btn_about_sidebar}    //a[@id='about_sidebar_link']
 ${btn_logout_sidebar}    //a[@id='logout_sidebar_link']
@@ -258,11 +259,11 @@ Verify Success: Redirected to Sauce Lab's ${socmed}
     ${urls}    Get Locations
     ${socmend}    Convert To Lower Case    ${socmed}
     IF    $socmed == "twitter"
-        Run Keyword And Continue On Failure    Should Match    ${twitter_url}    ${urls}
+        Run Keyword And Continue On Failure    Should Be Equal    ${twitter_url}    ${urls}
     ELSE IF    $socmed == "facebook"
-        Run Keyword And Continue On Failure    Should Match    ${facebook_url}    ${urls}
+        Run Keyword And Continue On Failure    Should Be Equal    ${facebook_url}    ${urls}
     ELSE IF    $socmed == "linkedin"
-        Run Keyword And Continue On Failure    Should Match    ${linkedin_url}    ${urls}
+        Run Keyword And Continue On Failure    Should Be Equal    ${linkedin_url}    ${urls}
     END
 
 Verify Success: Cart Badge is Updated
@@ -282,4 +283,6 @@ Verify Success: All Products are Added to Cart
             Fail    Product is not matched with purchased product from previous page.
         END
     END
+    Open Sidebar
+    Wait Until Keyword Succeeds    10s    1s    Click Element    ${btn_resetAppState_sidebar}
 # ====================================================================================================

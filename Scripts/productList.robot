@@ -89,4 +89,7 @@ TC-02-013 Remove All Products from Cart
     Verify Success: Cart Badge is Updated
     Click All Remove from Cart Buttons
     Verify Success: Badge is Disappeared
+
+TC-02-014 All Product Details
+    Verify Success: Redirected to Product Details
 # ====================================================================================================

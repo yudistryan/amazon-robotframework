@@ -165,7 +165,7 @@ Check If Element is Rotating
     END
 
 Verify Error: Burger Menu is Rotating
-    ${rotating}    Check If Element is Rotating    ${btn_burger_sidebar}
+    ${rotating}    Check If Element is Rotating    ${img_burger_icon}
     IF    $rotating == $False
         Fail    Burger Menu is not rotating.
     END
