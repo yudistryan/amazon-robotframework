@@ -1,5 +1,7 @@
 *** Variables ***
+# URLs
 ${base_url}    https://www.saucedemo.com/
+${productList_sub_url}    /inventory.html
 
 # Usernames
 ${standard_user}    standard_user

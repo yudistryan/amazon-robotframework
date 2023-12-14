@@ -7,6 +7,7 @@ Library    XML
 Library    OperatingSystem
 Library    Collections
 Library    String
+Library    ../Libraries/dataProcessing.py
 Resource    data.resource
 Resource    general.resource
 Resource    login.resource
