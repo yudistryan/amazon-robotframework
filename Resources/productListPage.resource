@@ -276,11 +276,17 @@ Verify Success: Cart Badge is Updated
 Verify Success: All Products are Added to Cart
     ${names}    Get Products Name List
     ${prices}    Get Products Price List
+    ${row_names}    Get Rows' Name List
+    ${row_prices}    Get Rows' Price List
     FOR    ${index}    IN RANGE    ${TOTAL_PURCHASED_PRODUCT}
-        ${product_name}    SeleniumLibrary.Get Element Attribute    ${txt_first_name_cart}    textContent
-        ${product_price}    SeleniumLibrary.Get Element Attribute    ${txt_first_price_cart}    textContent
+        ${name_locator}    Get From List    ${row_names}    ${index}
+        ${price_locator}    Get From List    ${row_prices}    ${index}
+        ${product_name}    SeleniumLibrary.Get Element Attribute    ${name_locator}    textContent
+        ${product_price}    SeleniumLibrary.Get Element Attribute    ${price_locator}    textContent
         IF    $product_name not in $names and $product_price not in $prices
             Fail    Product is not matched with purchased product from previous page.
+        ELSE
+            Log    ${product_name} is found in the cart.
         END
     END
     Open Sidebar
