@@ -1,0 +1,10 @@
+host: # URL of your host
+project: # Project name
+username: # Your account's email
+key: # Can be password or API key
+file: ./Test Result/junit-report.xml # Path of your junit.xml
+title: # Test Run Title
+timeout: 5.5
+run_id: # Test run id
+config: ./Config/config.yml # Path of your config if you want to use other file
+auto_creation_response: false # If TestRail won't recognize your test case, it will auto-create it
