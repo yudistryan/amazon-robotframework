@@ -15,7 +15,7 @@ ${btn_cartTop}    //a[@class='shopping_cart_link']
 ${img_cartBadge}    //span[@class='shopping_cart_badge']
 
 # Sidebar Menu
-${btn_burger_sidebar}    id:react-burger-menu-btn
+${btn_burger_sidebar}    //button[@id='react-burger-menu-btn']
 ${img_burger_icon}    //img[@alt='Open Menu']
 ${btn_allItems_sidebar}    //a[@id='inventory_sidebar_link']
 ${btn_about_sidebar}    //a[@id='about_sidebar_link']
@@ -188,7 +188,8 @@ Verify Success: Products Sorted
     END
 
 Open Sidebar
-    Wait Until Keyword Succeeds    10s    1s    Click Element    ${btn_burger_sidebar}
+    Scroll Element Into View    ${img_burger_icon}
+    Wait Until Keyword Succeeds    10s    1s    Click Button    ${btn_burger_sidebar}
     Wait Until Element Is Visible    ${btn_about_sidebar}
 
 Click on All Items Button in Sidebar
