@@ -13,4 +13,4 @@
  #--listener RetryFailed:3
  #--timestampoutputs
  #--variable global_env:Staging TW
- .\Scripts
+ .\Scripts\*data_driven*
