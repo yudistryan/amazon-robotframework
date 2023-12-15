@@ -5,7 +5,7 @@
  -r trial-report.html
  -o trial-output.xml
  #--loglevel TRACE
- #--test *-03-*
+ --test *-02-008*
  #-i Retest
  #-i Exclude
  -e Exclude
@@ -13,4 +13,4 @@
  #--listener RetryFailed:3
  #--timestampoutputs
  #--variable global_env:Staging TW
- .\Scripts\*data_driven*
+ .\Scripts
