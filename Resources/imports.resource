@@ -14,3 +14,4 @@ Resource    login.resource
 Resource    productListPage.resource
 Resource    cart.resource
 Resource    productDetails.resource
+Resource    checkout.resource
