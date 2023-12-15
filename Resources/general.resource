@@ -32,7 +32,7 @@ Product Details List
     ...    ${details_fleeceJacket}    ${details_onesie}    ${details_redTshirt}
     RETURN    @{products}
 
-Products Name List
+Get Products Name List
     ${products}    Product Details List
     @{names}    Create List    ${EMPTY}
     FOR    ${product}    IN    @{products}
@@ -44,7 +44,7 @@ Products Name List
     END
     RETURN    @{names}
 
-Products Price List
+Get Products Price List
     ${products}    Product Details List
     @{prices}    Create List    ${EMPTY}
     FOR    ${product}    IN    @{products}

@@ -17,17 +17,43 @@ ${btn_backToProductsList}    //button[@id='back-to-products']
 
 # ====================================================================================================
 *** Keywords ***
+Click A Product Title
+    [Arguments]    ${button}
+    Wait Until Keyword Succeeds    10s    1s    Click Element    ${button}
+
+User is Redirected to Relevant Product Details Page
+    Wait Until Element Is Visible    ${btn_backToProductsList}
+
+Get Product's Name in Detail Page
+    ${product_name}    SeleniumLibrary.Get Element Attribute    ${txt_productDetails_title}    textContent
+    RETURN    ${product_name}
+
+Get Product's Price in Detail Page
+    ${product_price}    SeleniumLibrary.Get Element Attribute    ${txt_productDetails_price}    textContent
+    RETURN    ${product_price}
+
+Product's Name in Details Page Should be Matched
+    [Arguments]    ${product_name_list}    ${current_fetched_name}
+    Run Keyword And Continue On Failure    Should Contain    ${product_name_list}    ${current_fetched_name}
+
+Product's Price in Details Page Should be Matched
+    [Arguments]    ${product_price_list}    ${current_fetched_price}
+    Run Keyword And Continue On Failure    Should Contain    ${product_price_list}    ${current_fetched_price}
+
+Go Back to Product List Page
+    Wait Until Keyword Succeeds    10s    1s    Click Element    ${btn_backToProductsList}
+
 Verify Success: Redirected to Product Details
     ${names}    Create Product's Title List
-    @{product_names}    Products Name List
-    @{product_prices}    Products Price List
+    @{product_names}    Get Products Name List
+    @{product_prices}    Get Products Price List
     FOR    ${name}    IN    @{names}
-        Wait Until Keyword Succeeds    10s    1s    Click Element    ${name}
-        Wait Until Element Is Visible    ${btn_backToProductsList}
-        ${current_name}    SeleniumLibrary.Get Element Attribute    ${txt_productDetails_title}    textContent
-        Run Keyword And Continue On Failure    Should Contain    ${product_names}    ${current_name}
-        ${current_price}    SeleniumLibrary.Get Element Attribute    ${txt_productDetails_price}    textContent
-        Run Keyword And Continue On Failure    Should Contain    ${product_prices}    ${current_price}
-        Wait Until Keyword Succeeds    10s    1s    Click Element    ${btn_backToProductsList}
+        Click a Product Title    ${name}
+        User is Redirected to Relevant Product Details Page
+        ${current_name}    Get Product's Name in Detail Page
+        Product's Name in Details Page Should be Matched    ${product_names}    ${current_name}
+        ${current_price}    Get Product's Price in Detail Page
+        Product's Price in Details Page Should be Matched    ${product_prices}    ${current_price}
+        Go Back to Product List Page
     END
 # ====================================================================================================

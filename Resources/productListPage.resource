@@ -274,8 +274,8 @@ Verify Success: Cart Badge is Updated
     Run Keyword And Continue On Failure    Should Be Equal    ${total_product}    ${element_count}
     
 Verify Success: All Products are Added to Cart
-    ${names}    Products Name List
-    ${prices}    Products Price List
+    ${names}    Get Products Name List
+    ${prices}    Get Products Price List
     FOR    ${index}    IN RANGE    ${TOTAL_PURCHASED_PRODUCT}
         ${product_name}    SeleniumLibrary.Get Element Attribute    ${txt_first_name_cart}    textContent
         ${product_price}    SeleniumLibrary.Get Element Attribute    ${txt_first_price_cart}    textContent
