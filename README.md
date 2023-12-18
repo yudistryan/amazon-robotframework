@@ -39,7 +39,7 @@ pip install --upgrade robotframework-seleniumlibrary
 To easily manage all of our [browser driver](https://robotframework.org/SeleniumLibrary/#toc-entry-4), I suggest you to install [WebDriverManager](https://github.com/MarketSquare/webdrivermanager) by entering this command:
 
 ```bash
-pip install --upgrade robotframework-seleniumlibrary
+pip install webdrivermanager 
 ```
 
 Then put this command and adjust it to your need:
